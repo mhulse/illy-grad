@@ -28,6 +28,10 @@ Voilà!
 1. Select swatches
 1. Click “Make Gradient”
 
+## Thanks
+
+Big ups goes out to [@moluapple](https://github.com/moluapple) for the [scripting help](https://forums.adobe.com/thread/2153719). :octocat:
+
 ---
 
 [<img width="32" height="32" align="right" src="http://mirrors.creativecommons.org/presskit/icons/zero.png" title="CC0 1.0 Universal (CC0 1.0)" target="_blank">](https://creativecommons.org/publicdomain/zero/1.0/)
