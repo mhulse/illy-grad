@@ -2,6 +2,8 @@
 
 **Create gradient from selected swatches in Adobe Illustrator.**
 
+![](demo.gif)
+
 ## Installation
 
 Use the below single-line Unix bash command to quickly install this script into your Illustrator `Scripts` folder.
@@ -17,6 +19,14 @@ The script’s filename, minus the file extension, will appear in the Scripts me
 Run the script from the scripts menu in Illustrator.
 
 Voilà!
+
+## Usage
+
+![](example.png)
+
+1. Open the script
+1. Select swatches
+1. Click “Make Gradient”
 
 ---
 
