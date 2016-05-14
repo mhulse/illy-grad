@@ -17,7 +17,7 @@ var GRAD = (function(root, GradientType, BridgeTalk, Window, undefined) {
 	var _private = {};
 	
 	// IMPORTANT! This MUST return a non-cached `activeDocument` result on each
-	// call due to the way Illustrator palettes communicate with the targe app.
+	// call due to the way Illustrator palettes communicate with the target app.
 	_private.doc = (function() {
 		
 		return root.app.activeDocument;
@@ -110,7 +110,7 @@ var GRAD = (function(root, GradientType, BridgeTalk, Window, undefined) {
 		
 		return flag; // Single exit point.
 		
-	}
+	};
 	
 	// Creates a swatch title based on selected swatch names, or user input:
 	_private.title = function(swatches) {
@@ -132,7 +132,7 @@ var GRAD = (function(root, GradientType, BridgeTalk, Window, undefined) {
 		name = names.join('-');
 		
 		// Max length of gradient swatch name is 31 characters:
-		name = name.split('').splice(0,28).join('') + '...'
+		name = (name.split('').splice(0,28).join('') + '...');
 		
 		// Give user the option of naming the gradient swatch:
 		user = prompt('Enter name for new gradient swatch', name);
