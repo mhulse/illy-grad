@@ -163,7 +163,7 @@ var GRAD = (function(root, GradientType, BridgeTalk, Window, undefined) {
 				
 				// Making a new gradient by default must have 2 colors and a mid point.
 				// Once you have made a gradient and referenced it. You can use
-				// `gradientStops.add()`` to give you extra stops that you require.
+				// `gradientStops.add()` to give you extra stops that you require.
 				//
 				// Gradient stops are ordered from left to right, no matter what order
 				// they were created in.
