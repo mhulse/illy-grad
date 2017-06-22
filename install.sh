@@ -32,20 +32,6 @@ function install() {
 	
 }
 
-# Check if Illustrator is installed:
-function check() {
-	
-	for f in "$1"; do
-		
-		# Check if the glob gets expanded to existing files.
-		# If not, f here will be exactly the pattern above
-		# and the exists test will evaluate to false.
-		[ -e "$f" ] && return 0  || return 1 # 0 = true, 1 = false
-		
-	done
-	
-}
-
 # Pick Illustrator version:
 function choose() {
 	
@@ -55,7 +41,7 @@ function choose() {
 	echo "Please pick the version of Illustrator"
 	echo "you would like to install these files to:"$'\n'
 	
-	select folder in "Cancel" "$1"
+	select folder in "Cancel" "${@}"
 		do
 			case $folder in
 				"Cancel")
@@ -78,31 +64,54 @@ function choose() {
 	
 }
 
-# Tidy up the terminal window:
-clear
-
-# Switch to glob folder location:
-cd "/Applications"
-
-if check "Adobe Illustrator"*; then
+# https://www.cyberciti.biz/tips/handling-filenames-with-spaces-in-bash.html
+# https://bash.cyberciti.biz/guide/$IFS
+init() {
 	
-	# Create menu:
-	if choose "Adobe Illustrator"*; then # `$folder` is now a global.
+	# Tidy up the terminal window:
+	clear
+	
+	# Switch to glob folder location:
+	cd "/Applications" || exit 0
+	
+	# save and change IFS:
+	OLDIFS=$IFS 
+	
+	# Set new IFS:
+	IFS=$'\n'
+	
+	# Setup array of directories:
+	ILLUSTRATOR=("Adobe Illustrator"*)
+	
+	# Restore old IFS:
+	IFS=$OLDIFS
+	
+	# Check if we have anything:
+	if [ ${#ILLUSTRATOR[@]} -gt 0 ]; then
 		
-		install "$folder"
+		# Create menu:
+		if choose "${ILLUSTRATOR[@]}"; then # `$folder` is now a global.
+			
+			# Do the installation:
+			install "$folder"
+			
+		fi
+		
+	else
+		
+		echo "Sorry, but Illustrator is not installed."
+		echo "Please install Illustrator and try again."$'\n'
 		
 	fi
 	
-else
+	# Return the user to where they started and exit the script:
+	cd - > /dev/null && exit 0
 	
-	echo "Sorry, but Illustrator is not installed."
-	echo "Please install Illustrator and try again."$'\n'
+	# Done!
+	# For more information about this script, see:
+	# https://github.com/mhulse/install-scripts
 	
-fi
+}
 
-# Return the user to where they started:
-cd - > /dev/null
-
-# Done!
-# For more information about this script, see:
-# https://github.com/mhulse/illy-grad
+# Init the script:
+init
