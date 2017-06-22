@@ -12,7 +12,7 @@ Use the below single-line Unix bash command to quickly install this script into 
 bash <(curl -sL https://git.io/vrsJX)
 ```
 
-Alternatively, you can dowload [`Gradient from Swatches.jsx`](Gradient from Swatches.jsx) into your Illustrator `Scripts` folder, located in the `/lllustrator CC/Presets` folder in your `lllustrator CC` installation directory.
+Alternatively, you can download [`Gradient from Swatches.jsx`](Gradient from Swatches.jsx) into your Illustrator `Scripts` folder, located in the `/lllustrator CC/Presets` folder in your `lllustrator CC` installation directory.
 
 The script’s filename, minus the file extension, will appear in the Scripts menu.
 
